@@ -2,4 +2,4 @@ library(shiny)
 library(shinyjs)
 
 
-htmlOutput("page")
+htmlOutput("page", class = "page")

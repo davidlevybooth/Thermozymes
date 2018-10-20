@@ -1,6 +1,6 @@
 library(shiny)
 
-ui2 <-  shinyUI(navbarPage(
+ui2 <-  shinyUI(navbarPage(theme = "login.css",
   
   
   
@@ -53,6 +53,32 @@ ui2 <-  shinyUI(navbarPage(
            uiOutput("lac_comments_table"),
            uiOutput("lac_comments_entry")
            )
+  ),
+  tabPanel("AA3 Oxidoreductases",
+           mainPanel(width='100%', fluidRow(
+             h2("Interactive Tree"),
+             tags$iframe(seamless = "seamless",
+                         src = "https://itol.embl.de/tree/1421036020432081537833180",
+                         height = 500, width = '100%')
+           ),
+           br(),
+           h2("Inspect Sequences"),
+           uiOutput("AA3_table_inputs"),
+           uiOutput("AA3_gene_tables"),
+           br(),
+           h2("Selected Sequences"),
+           tableOutput("AA3_data_out"),
+           br(),
+           br(),
+           h2("Comments"),
+           uiOutput("AA3_comments_table"),
+           uiOutput("AA3_comments_entry")
+           #,
+           # h2("Download Selected Sequences"),
+           # div(style="display: inline-block", downloadButton("downloadDNA", "Download DNA Sequences")),
+           # div(style="display: inline-block", downloadButton("downloadProtein", "Download Protein Sequences"))
+           )
+           
   )
 ) #navbarPage
 ) #shinyUI)
